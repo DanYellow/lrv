@@ -5,9 +5,10 @@ import styled from 'styled-components'
 
 import HeaderWrapper from 'components/header-wrapper'
 import HeaderHero from 'components/header-hero'
-import './reset.css'
-import './fonts.css'
-import './base.css'
+import './styles/reset.css'
+import './styles/fonts.css'
+import './styles/base.css'
+import './styles/icons.css'
 
 const Footer = styled.footer`
   margin-top: 35px;
