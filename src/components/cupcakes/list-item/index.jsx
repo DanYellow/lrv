@@ -2,17 +2,18 @@ import styled from 'styled-components';
 
 const Cupcake = styled.li`
     flex: 33%;
-    padding: 5px;
+    padding: 2px;
     margin-bottom: 17px;
     flex-grow: 0;
     font-family: 'latoregular';
 
-    @media only screen and (max-width: 736px) {
-      flex: 100%;
+    @media only screen and (min-width: 737px) and (max-width: 1024px) and (orientation: landscape),
+    screen and (max-width: 736px) and (orientation: landscape) {
+      flex: 50%;
     }
 
-    @media only screen and (min-width: 737px) and (max-width: 1024px) {
-      flex: 50%;
+    @media only screen and (max-width: 736px) and (orientation: portrait) {
+      flex: 100%;
     }
 `;
 

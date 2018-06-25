@@ -12,7 +12,10 @@
     "gatsby-plugin-styled-components": "^2.0.11",
     "gatsby-source-filesystem": "^1.5.39",
     "gatsby-transformer-json": "^1.0.20",
+    "jest": "^23.1.0",
+    "jest-cli": "^23.1.0",
     "react-helmet": "^5.2.0",
+    "react-string-replace": "^0.4.1",
     "styled-components": "^3.3.3"
   },
   "keywords": [
@@ -20,9 +23,9 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write 'src/**/*.js'",
+    "build": "gatsby build --prefix-paths",
+    "develop": "gatsby develop -H 0.0.0.0",
+    "format": "prettier --write 'src/**/*.jsx'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {

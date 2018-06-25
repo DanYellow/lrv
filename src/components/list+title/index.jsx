@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const bulletSize = 8; 
 const ListTitle = styled.div`
     flex: 50%;
-    padding: 5px;
+    padding: 2px;
     
     @media only screen and (min-width: 737px) and (max-width: 1024px) {
         margin-bottom: 17px;

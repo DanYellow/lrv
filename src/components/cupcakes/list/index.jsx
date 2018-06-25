@@ -7,6 +7,7 @@ const Cupcakes = styled.ul`
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin: 2px;
 `
 
 export default props => (

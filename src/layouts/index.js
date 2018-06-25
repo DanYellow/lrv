@@ -1,13 +1,27 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+import styled from 'styled-components'
 
 import HeaderWrapper from 'components/header-wrapper'
 import HeaderHero from 'components/header-hero'
 import './reset.css'
 import './fonts.css'
 import './base.css'
-// import './index.css'
+
+const Footer = styled.footer`
+  margin-top: 35px;
+  margin-bottom: 10px;
+`
+
+const Wrapper = styled.section`
+  max-width: 950px;
+  margin: 0 auto;
+
+  @media only screen and (max-width: 736px) {
+    margin: 0 5px;
+  }
+`
 
 const Layout = ({ children, data }) => (
   <div>
@@ -22,16 +36,13 @@ const Layout = ({ children, data }) => (
     <HeaderWrapper pageTitle={'Services'}>
       <HeaderHero />
     </HeaderWrapper>
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 1000,
-        // padding: '0px 1.0875rem 1.45rem',
-        // paddingTop: 0,
-      }}
-    >
+    <Wrapper>
       {children()}
-    </div>
+
+      <Footer>
+        © La Rose Veloutée {  new Date().getFullYear() } 
+      </Footer>  
+    </Wrapper>
   </div>
 )
 

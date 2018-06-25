@@ -12,6 +12,19 @@ const Hero = styled.div`
         height: 45vh;
         object-position: 50% 50%;
         object-fit: cover;
+
+        @media only screen and (max-width: 736px) {
+            height: 65vh;
+        }
+    }
+
+    &:before {
+        content: '';
+        background-color: rgba(0, 0, 0, .5);
+        top: 0; left: 0; 
+        right: 0; bottom: 0;
+        position: absolute;
+        z-index: 1;
     }
 `
 
@@ -22,8 +35,10 @@ export default class HeaderHero extends React.Component {
     this.hero = React.createRef()
     this.amountscrolled = this.amountscrolled.bind(this)
 
-    window.addEventListener('scroll', this.amountscrolled, false)
-    window.addEventListener('touchmove', this.amountscrolled, false)
+    if (typeof window !== 'undefined') {
+        window.addEventListener('scroll', this.amountscrolled, false)
+        window.addEventListener('touchmove', this.amountscrolled, false)
+    }
   }
 
   getDocHeight() {
