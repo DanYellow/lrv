@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { COLOR_PINK } from 'config/variables'
+
 const bulletSize = 8; 
 const ListTitle = styled.div`
     flex: 50%;
@@ -21,7 +23,7 @@ const ListTitle = styled.div`
             width: ${bulletSize}px;
             height: ${bulletSize}px;
             display: inline-block;
-            background-color: #D82383;
+            background-color: ${COLOR_PINK};
             border-radius: 50%;
             margin-right: 10px;
             margin-bottom: 5px;

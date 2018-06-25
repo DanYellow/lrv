@@ -1,32 +1,26 @@
-import styled from 'styled-components';
-import logo from './logo-white.png';
+import styled from 'styled-components'
+import React, { Fragment } from 'react'
+
+import Navigation from 'components/navigation'
+
+import logo from './logo-white.png'
+import bgImage from 'components/header-hero/image3.jpg'
 
 const Header = styled.header`
     position: relative;
     overflow: hidden;
-    margin-bottom: 20px;
-`;
+    background-image: url(${bgImage});
+    width: 100%;
+    height: 45vh;
+    background-size: cover;
 
-const PageTitle = styled.section`
-    position: relative;
-    max-width: 950px;
-    margin: 0 auto;
-    border-top: 5px solid #D82383;
-    
-    @media only screen and (max-width: 768px) {
-        margin: 0 15px;
-    }
-
-
-    h1 {
+    &:after {
+        content: '';
+        background-color: rgba(0, 0, 0, .5);
+        top: 0; left: 0; 
+        right: 0; bottom: 0;
         position: absolute;
-        top: -60px;
-        padding: 7px 40px 7px 7px;
-        background-color: #D82383;
-        color: white;
-        font-weight: bold;
-        font-size: 2rem;
-        z-index: 9;
+        z-index: 0;
     }
 `
 
@@ -50,21 +44,17 @@ const Logo = styled.div`
     }
 `
 
-export default (props) => {
-    return (
-        <Header>
-            <Logo>
+export default props => {
+  return (
+      <Header>
+        <Navigation />
+        {/* <Logo>
                 <img src={logo} alt="" width="150" />
                 <h1>
-                    Pâtisserie spécialisée dans les petits desserts basée à Montréal.
+                Pâtisserie spécialisée dans les petits desserts basée à Montréal.
                 </h1>
-            </Logo>
-            {props.children}
-            <PageTitle>
-                <h1>
-                    {props.pageTitle}
-                </h1>
-            </PageTitle>
-        </Header>
-    )
+            </Logo> */}
+        {props.children}
+      </Header>
+  )
 }
