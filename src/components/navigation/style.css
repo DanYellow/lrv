@@ -1,0 +1,12 @@
+.activate {
+    &:after {
+        content: '';
+        transform: scaleX(1)!important;
+        display: block;
+        transform-origin: center left;
+        transition: transform 0.25s;
+        height: 3px;
+        margin-top: 5px;
+        background-color: #D82383!important;
+    }
+}

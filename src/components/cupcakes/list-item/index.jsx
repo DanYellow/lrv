@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Cupcake = styled.li`
     flex: 33%;
     padding: 2px;
-    margin-bottom: 17px;
+    margin-bottom: 30px;
     flex-grow: 0;
     font-family: 'latoregular';
 
@@ -14,6 +14,10 @@ const Cupcake = styled.li`
 
     @media only screen and (max-width: 736px) and (orientation: portrait) {
       flex: 100%;
+    }
+
+    p {
+      margin-top: 3px;
     }
 `;
 

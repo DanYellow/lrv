@@ -1,13 +1,17 @@
+const postcssPresetEnv = require('postcss-preset-env')
+
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'La Rose Veloutée',
+    titles: [{
+      index: "Ser"
+    }]
   },
   pathPrefix: `/lrv`,
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     'gatsby-transformer-json',
-    'gatsby-plugin-react-next',
     {
       resolve: 'gatsby-source-filesystem',
       options: {

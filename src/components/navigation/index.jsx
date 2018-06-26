@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { COLOR_PINK } from 'config/variables'
+import Link from 'gatsby-link'
 
+import './style.css';
 
 const Navigation = styled.nav`
     width: 100%;
@@ -20,14 +22,10 @@ const Navigation = styled.nav`
         }
 
 
-        li {
-            margin-right: 10px;
+        li { margin-right: 10px; }
 
-            .active {
-                &:after {
-                    transform: scaleX(1);
-                }
-            }
+        a {
+            color: white;
 
             &:hover, &:active {
                 &:after {
@@ -45,21 +43,18 @@ const Navigation = styled.nav`
                 margin-top: 5px;
                 background-color: ${COLOR_PINK};
             }
-
-            a {
-                color: white;
-            }
         }
     }
 `
+
 
 export default (props) => {
     return (
         <Navigation>
             <ul>
-                <li><a href="/">Accueil</a></li>
-                <li>Galerie</li>
-                <li>Contact</li>
+                <li><Link to="/" activeClassName="activate" exact={true}>Accueil</Link></li>
+                <li><Link to="/" activeClassName="activate" exact={true}>Galerie</Link></li>
+                <li><Link to="/contact" activeClassName="activate" exact={true}>Contact</Link></li>
             </ul>
         </Navigation>
     )

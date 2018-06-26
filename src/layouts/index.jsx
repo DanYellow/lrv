@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
+import { COLOR_PINK } from 'config/variables'
 import HeaderWrapper from 'components/header-wrapper'
-import HeaderHero from 'components/header-hero'
 
 import 'layouts/styles/reset.css'
 import 'layouts/styles/fonts.css'
@@ -54,6 +54,11 @@ const Socials = styled.ul`
 
   a {
     color: black;
+
+    &:hover,
+    &:active {
+      color: ${COLOR_PINK};
+    }
   }
 `
 
@@ -100,7 +105,7 @@ const Layout = ({ children, data }) => (
         { name: 'keywords', content: 'sample, something' },
       ]}
     />
-    <HeaderWrapper pageTitle={'Services'}></HeaderWrapper>
+    <HeaderWrapper></HeaderWrapper>
     <PageTitle>
         <h1>Services</h1>
       </PageTitle>

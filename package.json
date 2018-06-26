@@ -4,16 +4,18 @@
   "version": "1.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "autoprefixer": "^8.6.3",
     "babel-plugin-styled-components": "^1.5.1",
     "gatsby": "^1.9.247",
     "gatsby-link": "^1.6.40",
+    "gatsby-plugin-postcss-sass": "^1.0.22",
     "gatsby-plugin-react-helmet": "^2.0.10",
-    "gatsby-plugin-react-next": "^1.0.11",
     "gatsby-plugin-styled-components": "^2.0.11",
     "gatsby-source-filesystem": "^1.5.39",
     "gatsby-transformer-json": "^1.0.20",
     "jest": "^23.1.0",
     "jest-cli": "^23.1.0",
+    "postcss-preset-env": "^5.1.0",
     "react-helmet": "^5.2.0",
     "react-string-replace": "^0.4.1",
     "styled-components": "^3.3.3"
@@ -24,7 +26,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build --prefix-paths",
-    "develop": "gatsby develop -H 0.0.0.0",
+    "develop": "gatsby develop",
     "format": "prettier --write 'src/**/*.jsx'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
