@@ -96,39 +96,42 @@ const socials = [
   },
 ]
 
-const Layout = ({ children, data }) => (
-  <div>
-    <Helmet
-      title={data.site.siteMetadata.title}
-      meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
-      ]}
-    />
-    <HeaderWrapper></HeaderWrapper>
-    <PageTitle>
-        <h1>Services</h1>
-      </PageTitle>
-    <Wrapper>
-      {children()}
+const Layout = (props) => {
+  console.log(props, props.layoutContext)
+  return (
+    // const Layout = ({ children, data, pathContext }) => (
+      <div>
+        <Helmet
+          title={props.data.site.siteMetadata.title}
+          meta={[
+            { name: 'description', content: 'Sample' },
+            { name: 'keywords', content: 'sample, something' },
+          ]}
+        />
+        <HeaderWrapper />
+        
+        <Wrapper>
+          {props.children()}
+          <Footer>
+            © La Rose Veloutée {new Date().getFullYear()}
+            <Socials>
+              {socials.map(social => {
+                return (
+                  <li key={social.url}>
+                    <a href={social.url}>
+                      <i className={`icon icon-${social.icon}`}></i>
+                    </a>
+                  </li>
+                )
+              })}
+            </Socials>
+          </Footer>
+        </Wrapper>
+      </div>
+    )
+} 
 
-      <Footer>
-        © La Rose Veloutée {new Date().getFullYear()}
-        <Socials>
-          {socials.map(social => {
-            return (
-              <li key={social.url}>
-                <a href={social.url}>
-                  <i className={`icon icon-${social.icon}`}></i>
-                </a>
-              </li>
-            )
-          })}
-        </Socials>
-      </Footer>
-    </Wrapper>
-  </div>
-)
+
 
 Layout.propTypes = {
   children: PropTypes.func,

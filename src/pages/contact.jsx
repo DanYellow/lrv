@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
+import PageTitle from 'components/page-title'
 
 import { COLOR_PINK } from 'config/variables'
 
@@ -33,16 +34,26 @@ const Email = styled.p`
 `
 
 const ContactPage = () => (
-  <Contact>
-    <Paragraph>La pâtisserie La Rose Veloutée opère dans la région de Montréal et ses environs.</Paragraph>
-    <ParagraphBold>Pour passer une commande ou pour obtenir plus d'informations, vous pouvez nous contacter au lien ci-dessous.</ParagraphBold>
-    <Email>info[@]laroseveloutee.com</Email>
-    <Footer>
-      <p>
-      Note : soyez rassurés que nous ferons le nécessaire pour vous répondre rapidement, si possible dans les 24 heures qui suivent.
-      </p>
-    </Footer>
-  </Contact>
+  <div style={{ maxWidth: 1000 }}>
+    <PageTitle title="Contact" />
+    <Contact>
+      <Paragraph>
+        La pâtisserie La Rose Veloutée opère dans la région de Montréal et ses
+        environs.
+      </Paragraph>
+      <ParagraphBold>
+        Pour passer une commande ou pour obtenir plus d'informations, vous
+        pouvez nous contacter au lien ci-dessous.
+      </ParagraphBold>
+      <Email>info[@]laroseveloutee.com</Email>
+      <Footer>
+        <p>
+          Note : soyez rassurés que nous ferons le nécessaire pour vous répondre
+          rapidement, si possible dans les 24 heures qui suivent.
+        </p>
+      </Footer>
+    </Contact>
+  </div>
 )
 
 export default ContactPage

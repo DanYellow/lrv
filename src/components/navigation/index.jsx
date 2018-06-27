@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 import { COLOR_PINK } from 'config/variables'
 import Link from 'gatsby-link'
 
-import './style.css';
+import './style.css'
 
 const Navigation = styled.nav`
     width: 100%;
@@ -27,9 +27,11 @@ const Navigation = styled.nav`
         a {
             color: white;
 
-            &:hover, &:active {
-                &:after {
-                    transform: scaleX(1);
+             @media only screen and (min-width: 1025px) { 
+                &:hover, &:active {
+                    &:after {
+                        transform: scaleX(1);
+                    }
                 }
             }
 
@@ -47,15 +49,26 @@ const Navigation = styled.nav`
     }
 `
 
-
-export default (props) => {
-    return (
-        <Navigation>
-            <ul>
-                <li><Link to="/" activeClassName="activate" exact={true}>Accueil</Link></li>
-                <li><Link to="/" activeClassName="activate" exact={true}>Galerie</Link></li>
-                <li><Link to="/contact" activeClassName="activate" exact={true}>Contact</Link></li>
-            </ul>
-        </Navigation>
-    )
+export default props => {
+  return (
+    <Navigation>
+      <ul>
+        <li>
+          <Link to="/" activeClassName="activate" exact={true}>
+            Accueil
+          </Link>
+        </li>
+        <li>
+          <Link to="/" activeClassName="activate" exact={true}>
+            Galerie
+          </Link>
+        </li>
+        <li>
+          <Link to="/contact" activeClassName="activate" exact={true}>
+            Contact
+          </Link>
+        </li>
+      </ul>
+    </Navigation>
+  )
 }

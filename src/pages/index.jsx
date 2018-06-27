@@ -3,6 +3,8 @@ import Link from 'gatsby-link'
 import styled from 'styled-components'
 import ReactStringReplace from 'react-string-replace'
 
+import PageTitle from 'components/page-title';
+
 import { COLOR_PINK } from 'config/variables'
 
 import Cupcakes from 'components/cupcakes/list'
@@ -153,9 +155,12 @@ const listVerrines = [
   },
 ]
 
+
+
 const IndexPage = props => {
   return (
     <div>
+      <PageTitle title="Services" />
       <Title>Nos cupcakes</Title>
       <Paragraph>Optez pour un cupcake traditionnel</Paragraph>
       <ListContainer>
@@ -178,8 +183,8 @@ const IndexPage = props => {
 
       <Title>Nos verrines</Title>
       <Paragraph>
-        Changez vos cupcakes en verrine pour <PriceInline>0,25&nbsp;$</PriceInline>{' '}
-        de plus l’unité.
+        Changez vos cupcakes en verrine pour{' '}
+        <PriceInline>0,25&nbsp;$</PriceInline> de plus l’unité.
       </Paragraph>
       <Verrines>
         {listVerrines.map(({ title, description, price }) => {
@@ -196,8 +201,11 @@ const IndexPage = props => {
         })}
       </Verrines>
       <Footer>
-        <p>Laissez-nous vous accompagner lors de votre célébration. Contactez-nous pour une table à desserts. <br />
-Nous en avons pour tous les goûts et tous les budgets.</p>
+        <p>
+          Laissez-nous vous accompagner lors de votre célébration.
+          Contactez-nous pour une table à desserts. <br />
+          Nous en avons pour tous les goûts et tous les budgets.
+        </p>
       </Footer>
     </div>
   )

@@ -1,6 +1,7 @@
 'use strict'
 
 const webpack = require('webpack')
+const path = require('path')
 
 exports.modifyWebpackConfig = ({ config }) => {
     config.plugin("webpack-provide", webpack.ProvidePlugin, [{
@@ -39,3 +40,37 @@ exports.modifyWebpackConfig = ({ config }) => {
 //     ],
 //   })
 // }
+
+// exports.createPages = ({ graphql, boundActionCreators }) => {
+//     const { createLayout, createPage } = boundActionCreators
+//     return new Promise((resolve, reject) => {
+//       const MainLayout = path.resolve(`./src/layouts/index.jsx`)
+  
+//     })
+//   }
+  
+
+
+// Implement the Gatsby API “onCreatePage”. This is
+// called after every page is created.
+exports.onCreatePage = async ({ page, boundActionCreators }) => {
+    const { createPage, createLayout } = boundActionCreators;
+  
+    return new Promise((resolve, reject) => {
+        let pageTitle = 'Services';
+        if (page.path.match(/^\/contact/)) {
+            pageTitle = 'Contact';
+        }
+        console.log('e', pageTitle)
+        createLayout({
+            component: path.resolve(`./src/layouts/index.jsx`),
+            context: {
+                pageTitle
+            }
+          })
+  
+      resolve();
+    });
+  };
+
+//   export.createLayout
