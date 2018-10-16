@@ -1,38 +1,27 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 
-import Layout from '../components/layout'
+import MainLayout from 'layouts/main'
 
 const IndexPage = ({ data }) => {
-  console.log('f', data)
   return (
-    <Layout>
+    <MainLayout>
       <h1>Hi people</h1>
       <ul>
         {data.lrvproducts.products.edges.map(product => {
-          return <li>{product.node.name}</li>
+          return <li key={product.node.name}>{product.node.name}</li>
         })}
       </ul>
       <p>Now go build something great.</p>
       <Link to="/page-2/">Go to page 2</Link>
-    </Layout>
+    </MainLayout>
   )
 }
-
-// export const query = graphql`
-//   query ProQuery {
-//     site {
-//       siteMetadata {
-//         title
-//       }
-//     }
-//   }
-// `
 
 export const query = graphql`
   query ProductsQuery {
     lrvproducts {
-      products {
+      products(enabled: true) {
         edges {
           node {
             description
