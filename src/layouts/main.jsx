@@ -47,7 +47,16 @@ export default ({ pageTitle = 'Bienvenue', children }) => {
       `}
       render={data => (
         <>
-          <Helmet titleTemplate={`%s | ${data.site.siteMetadata.title}`} />
+          <Helmet
+            titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+            link={[
+              {
+                rel: 'shortcut icon',
+                type: 'image/x-icon',
+                href: './favicon.ico',
+              },
+            ]}
+          />
           <Header />
           <Wrapper>
             <PageTitle title={pageTitle} />
