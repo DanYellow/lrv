@@ -1,14 +1,7 @@
 import React from 'react'
-import { Link } from 'gatsby'
 
-import Layout from '../layouts/main'
+import MainLayout from 'layouts/main'
 
-const SecondPage = () => (
-  <Layout>
-    <h1>Hi from the second page</h1>
-    <p>Welcome to page 2</p>
-    <Link to="/">Go back to the homepage</Link>
-  </Layout>
-)
+const GaleriePage = () => <MainLayout />
 
-export default SecondPage
+export default GaleriePage

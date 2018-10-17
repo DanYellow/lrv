@@ -1,13 +1,12 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 
-//
+import PageTitle from 'components/page-title'
 import socials from 'config/socials'
 import Socials from 'components/socials'
-// import HeaderWrapper from 'components/header-wrapper'
+import Header from 'components/header'
 
 import 'styles/reset.css'
 import 'styles/fonts.css'
@@ -34,30 +33,7 @@ const Wrapper = styled.section`
   }
 `
 
-const PageTitle = styled.section`
-  position: relative;
-  max-width: 950px;
-  margin: 0 auto;
-  border-top: 5px solid #d82383;
-  margin-bottom: 30px !important;
-
-  @media only screen and (max-width: 768px) {
-    margin: 0 15px;
-  }
-
-  h1 {
-    position: absolute;
-    top: -60px;
-    padding: 7px 40px 7px 7px;
-    background-color: #d82383;
-    color: white;
-    font-weight: bold;
-    font-size: 2rem;
-    z-index: 9;
-  }
-`
-
-export default ({ children }) => {
+export default ({ pageTitle = 'Bienvenue', children }) => {
   return (
     <StaticQuery
       query={graphql`
@@ -72,7 +48,9 @@ export default ({ children }) => {
       render={data => (
         <>
           <Helmet titleTemplate={`%s | ${data.site.siteMetadata.title}`} />
+          <Header />
           <Wrapper>
+            <PageTitle title={pageTitle} />
             {children}
             <Footer>
               © La Rose Veloutée {new Date().getFullYear()}
