@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-import MainLayout from 'layouts/main'
+import MainLayout from 'layouts/main';
 
-const GaleriePage = () => <MainLayout />
+const GaleriePage = () => <MainLayout pageTitle="Galerie" />;
 
-export default GaleriePage
+export default GaleriePage;
