@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
-import { COLOR_PINK } from 'config/colors'
-import Link from 'gatsby-link'
+import React from 'react';
+import styled from 'styled-components';
+import { COLOR_PINK } from 'config/colors';
+import Link from 'gatsby-link';
 
 const Navigation = styled.nav`
   width: 100%;
@@ -61,7 +61,7 @@ const Navigation = styled.nav`
       }
     }
   }
-`
+`;
 
 export default props => {
   return (
@@ -84,5 +84,5 @@ export default props => {
         </li>
       </ul>
     </Navigation>
-  )
-}
+  );
+};
