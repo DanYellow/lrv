@@ -19,6 +19,9 @@ module.exports = {
     },
     'gatsby-plugin-offline',
     'gatsby-plugin-styled-components',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
+    'lrv-source-gallery',
     // 'gatsby-plugin-resolve-src',
     {
       resolve: 'gatsby-source-graphql',
@@ -32,5 +35,13 @@ module.exports = {
         refetchInterval: 60,
       },
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'pages',
+        path: `${__dirname}/src/pages/`,
+        // path: 'http://127.0.0.1:8000/gallery',
+      },
+    },
   ],
-}
+};

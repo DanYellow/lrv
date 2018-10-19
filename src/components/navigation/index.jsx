@@ -68,17 +68,17 @@ export default props => {
     <Navigation>
       <ul>
         <li>
-          <Link to="/" activeClassName="activate" exact={true}>
+          <Link to="/" activeClassName="activate" exact>
             Accueil
           </Link>
         </li>
         <li>
-          <Link to="/galerie" activeClassName="activate" exact={true}>
+          <Link to="/galerie" activeClassName="activate" exact>
             Galerie
           </Link>
         </li>
         <li>
-          <Link to="/contact" activeClassName="activate" exact={true}>
+          <Link to="/contact" activeClassName="activate" exact>
             Contact
           </Link>
         </li>

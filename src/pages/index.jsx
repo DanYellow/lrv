@@ -8,8 +8,7 @@ import { List, ListImageTitle } from 'components/templates';
 import { COLOR_PINK } from 'config/colors';
 
 const ListWrapper = Styled.div`
-  display: flex
-`;
+  display: flex;`;
 
 const Separator = Styled.section`
   padding: 5px;
@@ -41,55 +40,52 @@ const IndexPage = ({ data }) => {
   return (
     <MainLayout pageTitle="Services">
       <ListWrapper>
-        <List
-          title={saveurs.edges[0].node.type.description}
-          list={saveurs.edges}
-        />
+        <List title={saveurs[0].type.description} list={saveurs} />
 
-        <List
-          title={glacages.edges[0].node.type.description}
-          list={glacages.edges}
-        />
+        <List title={glacages[0].type.description} list={glacages} />
       </ListWrapper>
       <Separator>
         <span>OU</span>
       </Separator>
       <ListImageTitle
-        list={cupcakesMaison.edges}
-        description={cupcakesMaison.edges[0].node.type.description}
+        list={cupcakesMaison}
+        galleryItems={data.galleryItems.edges}
+        description={cupcakesMaison[0].type.description}
       />
     </MainLayout>
   );
 };
 
 export const query = graphql`
-  query ProductsQuery {
+  query IndexQueries {
     lrvproducts {
       verrines: products(type_slug: "verrine", enabled: true) {
-        edges {
-          node {
-            ...product
-          }
-        }
+        ...product
       }
       saveurs: products(type_slug: "saveur", enabled: true) {
-        edges {
-          node {
-            ...product
-          }
-        }
+        ...product
       }
       glacages: products(type_slug: "glacage", enabled: true) {
-        edges {
-          node {
-            ...product
-          }
-        }
+        ...product
       }
       cupcakesMaison: products(type_slug: "cupcake-maison", enabled: true) {
-        edges {
-          node {
-            ...product
+        ...product
+      }
+    }
+
+    galleryItems: allFile(
+      filter: { fields: { name: { regex: "/.(png|jpg)$/" } } }
+    ) {
+      edges {
+        node {
+          childImageSharp {
+            fixed(width: 350) {
+              src
+            }
+          }
+          fields {
+            name
+            originalName
           }
         }
       }
@@ -101,6 +97,10 @@ export const query = graphql`
     name
     description
     price
+    image {
+      name: image
+    }
+
     type {
       slug
       description

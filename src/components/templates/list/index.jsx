@@ -38,7 +38,7 @@ export default ({ title, list }) => (
     <p>{title}</p>
     <ul>
       {list.map(item => (
-        <li key={item.node.id}>{item.node.name}</li>
+        <li key={item.id}>{item.name}</li>
       ))}
     </ul>
   </ListContainer>

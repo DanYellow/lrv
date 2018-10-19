@@ -1,4 +1,5 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import { find } from 'lodash';
 import Styled from 'styled-components';
 import ImageTitle from 'components/templates/image-title';
 
@@ -27,16 +28,23 @@ const ImageTitleItem = Styled.li`
   }
 `;
 
-export default ({ title, list }) => {
+export default ({ title, list, galleryItems }) => {
   return (
     <ImageTitleWrapper>
-      {list.map(({ node }) => {
+      {list.map(item => {
+        const imageObj = find(galleryItems, [
+          'node.fields.originalName',
+          item.image.name,
+        ]);
+        const image = imageObj?.node.childImageSharp.fixed.src;
+
         const data = {
-          id: node.id,
-          name: node.name,
-          description: node.description,
-          image: 'http://danyellow.net/lrv/src/assets/rhum_3.jpg',
+          id: item.id,
+          name: item.name,
+          description: item.description,
+          image,
         };
+
         return (
           <ImageTitleItem key={data.id}>
             <ImageTitle {...data} />
