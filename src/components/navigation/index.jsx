@@ -63,6 +63,9 @@ const Navigation = styled.nav`
   }
 `;
 
+const isPartiallyActive = ({ isPartiallyCurrent }) =>
+  isPartiallyCurrent ? { className: 'activate' } : null;
+
 export default props => {
   return (
     <Navigation>
@@ -73,7 +76,7 @@ export default props => {
           </Link>
         </li>
         <li>
-          <Link to="/galerie" activeClassName="activate" exact>
+          <Link to="/galerie/" activeClassName="activate">
             Galerie
           </Link>
         </li>

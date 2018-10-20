@@ -4,10 +4,11 @@ import Styled from 'styled-components';
 const GalleryItem = Styled.div.attrs({
   'data-gallery-item': '',
 })`
-figure {
-    height: 100%;
-    overflow: hidden;
-}
+    figure {
+        height: 100%;
+        overflow: hidden;
+    }
+
     img {
         width: 100%;
         object-fit: cover;

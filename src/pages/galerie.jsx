@@ -1,9 +1,9 @@
 import React from 'react';
-import Styled from 'styled-components';
-import { set } from 'lodash';
+import Styled, { injectGlobal } from 'styled-components';
 
 import MainLayout from 'layouts/main';
 import GalleryItem from 'components/gallery-item';
+import { COLOR_PINK } from 'config/colors';
 
 const Gallery = Styled.div`
     display: grid;
@@ -12,18 +12,32 @@ const Gallery = Styled.div`
     grid-gap: 10px;
 
     [data-gallery-item] {
-        &:nth-of-type(1) {
+        &:first-of-type {
             grid-column: 1 / 3;
         }
-        &:nth-of-type(2) {
+        
+        &:nth-of-type(n + 2) {
             grid-column: 2 / 3;
+        }
+
+        &:nth-of-type(1000n + 3) {
+            grid-column: 3 / 4;
+        }
+
+        @media only screen and (max-width: 736px) {
+            grid-column: 1 / 4!important;
         }
     }
 `;
 
 const GalleryMsg = Styled.div`
     p {
-        font-size: 1.5rem;
+        display: inline-block;
+        padding: 5px 5px 15px;
+        margin-bottom: 7px;
+        background-color: ${COLOR_PINK};
+        font-size: 2.5rem;
+        color: white;
     }
 `;
 
@@ -38,8 +52,14 @@ const galleryTextsComponents = {
   '2': () => {
     return (
       <GalleryMsg>
-        <p>De La</p>
-        <p>Pâtisserie</p>
+        <p>La Pâtisserie</p>
+      </GalleryMsg>
+    );
+  },
+  '5': () => {
+    return (
+      <GalleryMsg>
+        <p>A vôtre image</p>
       </GalleryMsg>
     );
   },
@@ -81,7 +101,7 @@ export const query = graphql`
         node {
           id
           childImageSharp {
-            resize(width: 500) {
+            resize(width: 300, height: 250) {
               src
             }
           }
