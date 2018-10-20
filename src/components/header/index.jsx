@@ -1,10 +1,10 @@
-import styled from 'styled-components'
-import React, { Component } from 'react'
+import styled from 'styled-components';
+import React, { Component } from 'react';
 
-import Navigation from 'components/navigation'
+import Navigation from 'components/navigation';
 
-import logo from 'images/logo-white.png'
-import bgImage from 'images/main-bg.jpg'
+import logo from 'images/logo-white.png';
+import bgImage from 'images/main-bg.jpg';
 
 const Header = styled.header`
   position: relative;
@@ -16,9 +16,12 @@ const Header = styled.header`
   background-position: top center;
   background-repeat: no-repeat;
 
-  @media only screen and (max-width: 736px) {
-    height: 95vh;
-    background-size: cover !important;
+  @media only screen and (max-width: 736px) and (orientation: landscape) {
+    height: 85vh;
+  }
+
+  @media only screen and (max-width: 736px) and (orientation: portrait) {
+    height: 50vh;
   }
 
   &:before {
@@ -31,7 +34,7 @@ const Header = styled.header`
     position: absolute;
     z-index: 0;
   }
-`
+`;
 
 const Logo = styled.div`
   position: absolute;
@@ -51,20 +54,20 @@ const Logo = styled.div`
       width: 20%;
     }
   }
-`
+`;
 
 export default class HeaderWrapper extends Component {
   componentDidMount() {
-    this.amountscrolled = this.amountscrolled.bind(this)
+    this.amountscrolled = this.amountscrolled.bind(this);
 
     if (typeof window !== 'undefined') {
-      window.addEventListener('scroll', this.amountscrolled, false)
-      window.addEventListener('touchmove', this.amountscrolled, false)
+      window.addEventListener('scroll', this.amountscrolled, false);
+      window.addEventListener('touchmove', this.amountscrolled, false);
     }
   }
 
   getDocHeight() {
-    const D = document
+    const D = document;
     return Math.max(
       D.body.scrollHeight,
       D.documentElement.scrollHeight,
@@ -72,25 +75,25 @@ export default class HeaderWrapper extends Component {
       D.documentElement.offsetHeight,
       D.body.clientHeight,
       D.documentElement.clientHeight
-    )
+    );
   }
 
   amountscrolled() {
     const winheight =
       window.innerHeight ||
-      (document.documentElement || document.body).clientHeight
-    const docheight = this.getDocHeight()
+      (document.documentElement || document.body).clientHeight;
+    const docheight = this.getDocHeight();
     const scrollTop =
       window.pageYOffset ||
       (document.documentElement || document.body.parentNode || document.body)
-        .scrollTop
-    const trackLength = docheight - winheight
-    const pctScrolled = Math.floor((scrollTop / trackLength) * 100) // gets percentage scrolled (ie: 80 or NaN if tracklength == 0)
+        .scrollTop;
+    const trackLength = docheight - winheight;
+    const pctScrolled = Math.floor((scrollTop / trackLength) * 100); // gets percentage scrolled (ie: 80 or NaN if tracklength == 0)
 
-    const newScale = (scrollTop / trackLength + 0) * 0.25 + 1
+    const newScale = (scrollTop / trackLength + 0) * 0.25 + 1;
 
     if (this.hero) {
-      this.hero.style.backgroundSize = `${newScale * 100}%`
+      this.hero.style.backgroundSize = `${newScale * 100}%`;
     }
   }
 
@@ -106,6 +109,6 @@ export default class HeaderWrapper extends Component {
         </Logo>
         {this.props.children}
       </Header>
-    )
+    );
   }
 }

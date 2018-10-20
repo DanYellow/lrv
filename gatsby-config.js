@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'La Rose Veloutée',
   },
-  pathPrefix: 'lrv',
+  pathPrefix: 'lrv2',
   plugins: [
     'gatsby-plugin-react-helmet',
     {
@@ -22,7 +22,6 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'lrv-source-gallery',
-    // 'gatsby-plugin-resolve-src',
     {
       resolve: 'gatsby-source-graphql',
       options: {
@@ -33,14 +32,6 @@ module.exports = {
         // Url to query from
         url: 'http://127.0.0.1:8000/api/graphql',
         refetchInterval: 60,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'pages',
-        path: `${__dirname}/src/pages/`,
-        // path: 'http://127.0.0.1:8000/gallery',
       },
     },
   ],

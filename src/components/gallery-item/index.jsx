@@ -3,6 +3,7 @@ import Styled from 'styled-components';
 
 const GalleryItem = Styled.div.attrs({
   'data-gallery-item': '',
+  className: 'hello',
 })`
     figure {
         height: 100%;

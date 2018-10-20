@@ -11,7 +11,7 @@ const Gallery = Styled.div`
     grid-auto-rows: 275px;
     grid-gap: 10px;
 
-    [data-gallery-item] {
+    .hello {
         &:first-of-type {
             grid-column: 1 / 3;
         }
