@@ -91,7 +91,7 @@ export default class HeaderWrapper extends Component {
     const pctScrolled = Math.floor((scrollTop / trackLength) * 100); // gets percentage scrolled (ie: 80 or NaN if tracklength == 0)
 
     const newScale = (scrollTop / trackLength + 0) * 0.25 + 1;
-
+    console.log('fefe');
     if (this.hero) {
       this.hero.style.backgroundSize = `${newScale * 100}%`;
     }

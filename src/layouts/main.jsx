@@ -1,17 +1,17 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
-import styled from 'styled-components'
+import React from 'react';
+import Helmet from 'react-helmet';
+import { StaticQuery, graphql } from 'gatsby';
+import styled from 'styled-components';
 
-import PageTitle from 'components/page-title'
-import socials from 'config/socials'
-import Socials from 'components/socials'
-import Header from 'components/header'
+import PageTitle from 'components/page-title';
+import socials from 'config/socials';
+import Socials from 'components/socials';
+import Header from 'components/header';
 
-import 'styles/reset.css'
-import 'styles/fonts.css'
-import 'styles/base.css'
-import 'styles/icons.css'
+import 'styles/reset.css';
+import 'styles/fonts.css';
+import 'styles/base.css';
+import 'styles/icons.css';
 
 const Footer = styled.footer`
   display: flex;
@@ -22,16 +22,16 @@ const Footer = styled.footer`
     flex-direction: column;
     align-items: normal;
   }
-`
+`;
 
 const Wrapper = styled.section`
-  max-width: 950px;
+  max-width: 985px;
   margin: 0 auto;
 
   @media only screen and (max-width: 736px) {
     margin: 0 5px;
   }
-`
+`;
 
 export default ({ pageTitle = 'Bienvenue', children }) => {
   return (
@@ -69,5 +69,5 @@ export default ({ pageTitle = 'Bienvenue', children }) => {
         </>
       )}
     />
-  )
-}
+  );
+};

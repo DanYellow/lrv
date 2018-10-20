@@ -1,5 +1,5 @@
 import React from 'react';
-import Styled, { injectGlobal } from 'styled-components';
+import Styled from 'styled-components';
 
 import MainLayout from 'layouts/main';
 import GalleryItem from 'components/gallery-item';
@@ -45,7 +45,7 @@ const galleryTextsComponents = {
   '1': () => {
     return (
       <GalleryMsg>
-        <p>La rose veloutée</p>
+        <p>La Rose Veloutée,</p>
       </GalleryMsg>
     );
   },
@@ -95,7 +95,10 @@ const GaleriePage = ({ data }) => {
 export const query = graphql`
   query GalleryQueries {
     galleryItems: allFile(
-      filter: { fields: { name: { regex: "/.(png|jpg)$/" } } }
+      filter: {
+        relativePath: { regex: "/.(png|jpg)$/" }
+        fields: { showInGallery: { eq: true } }
+      }
     ) {
       edges {
         node {

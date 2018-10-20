@@ -1,9 +1,9 @@
-import React from 'react'
-import Styled from 'styled-components'
+import React from 'react';
+import Styled from 'styled-components';
 
 const PageTitle = Styled.section`
     position: relative;
-    max-width: 950px;
+    max-width: 985px;
     margin: 0 auto;
     border-top: 5px solid #D82383;
     margin-bottom: 30px !important;
@@ -22,10 +22,10 @@ const PageTitle = Styled.section`
         font-size: 2rem;
         z-index: 9;
     }
-`
+`;
 
 export default ({ title }) => (
   <PageTitle>
     <h1>{title}</h1>
   </PageTitle>
-)
+);

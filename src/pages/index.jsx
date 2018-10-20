@@ -8,7 +8,12 @@ import { List, ListImageTitle } from 'components/templates';
 import { COLOR_PINK } from 'config/colors';
 
 const ListWrapper = Styled.div`
-  display: flex;`;
+  display: flex;
+  
+  @media only screen and (max-width: 736px) {
+    flex-direction: column;
+  }
+`;
 
 const Separator = Styled.section`
   padding: 5px;
@@ -41,7 +46,6 @@ const IndexPage = ({ data }) => {
     <MainLayout pageTitle="Services">
       <ListWrapper>
         <List title={saveurs[0].type.description} list={saveurs} />
-
         <List title={glacages[0].type.description} list={glacages} />
       </ListWrapper>
       <Separator>

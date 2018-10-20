@@ -32,6 +32,12 @@ exports.sourceNodes = async ({ actions, store, cache, createNodeId }) => {
           name: 'name',
           value: item.name,
         });
+
+        await createNodeField({
+          node: fileNode,
+          name: 'showInGallery',
+          value: item.showOnline,
+        });
       } catch (error) {}
     }
   }
